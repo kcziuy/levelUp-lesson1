@@ -78,6 +78,6 @@ resource "aws_instance" "ubuntu-vm" {
       user = "ubuntu"
       private_key = tls_private_key.pk.private_key_pem
     }
-    inline = ["sudo apt update", "sudo apt install -y openssh-server nginx", "sudo service nginx start"] // as root default
+    inline = ["sudo apt update", "sudo apt install -y nginx", "sudo service nginx start"] // as root default
   }
 }
