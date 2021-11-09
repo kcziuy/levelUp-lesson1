@@ -1,0 +1,11 @@
+[Unit]
+Description=My date logging service
+After=network-online.target
+
+[Service]
+ExecStart=/bin/bash /opt/mylog/datetimelog.sh
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
+Alias=mylog.service
