@@ -1,16 +1,16 @@
 # 2.2 #
 
 ## plugins.sh ##
-\$ plugins.sh [pluginfile.txt]
+\$ plugins.sh \[pluginfile\]
 
-Построчно разбирает плагины jenkins-a и загружает в /opt/pluigins
-Параметры: 
-    pluginfile.txt - файл с перечислением плагинов jenkins-a формата:
+Построчно разбирает плагины jenkins-a и загружает в /opt/pluigins. Параметры:
+
+* pluginfile.txt - файл с перечислением плагинов jenkins-a формата:
 ```
         Plugin: %pluginname%
         Version: %pluginversion%
 ```
-Дополнительно:
+Дополнительно: 
     Если не существует директории /opt/plugins с правами 700 для этого пользователя, 
     скрипт автоматически ее создаст, но запросит sudo-пароль этого пользователя.
 
