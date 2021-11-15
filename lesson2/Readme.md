@@ -3,8 +3,7 @@
 ## plugins.sh ##
 \$ plugins.sh \[pluginfile\]
 
-Построчно разбирает плагины jenkins-a и загружает в /opt/pluigins 
-Параметры:
+Построчно разбирает плагины jenkins-a и загружает в /opt/pluigins. Параметры:
 
 * pluginfile.txt - файл с перечислением плагинов jenkins-a формата:
 ```
