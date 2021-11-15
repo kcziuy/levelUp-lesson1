@@ -1,3 +1,19 @@
+# 2.2 #
+
+## plugins.sh ##
+\$ plugins.sh [pluginfile.txt]
+
+Построчно разбирает плагины jenkins-a и загружает в /opt/pluigins
+Параметры: 
+    pluginfile.txt - файл с перечислением плагинов jenkins-a формата:
+```
+        Plugin: %pluginname%
+        Version: %pluginversion%
+```
+Дополнительно:
+    Если не существует директории /opt/plugins с правами 700 для этого пользователя, 
+    скрипт автоматически ее создаст, но запросит sudo-пароль этого пользователя.
+
 # 2.1 #
 ## terraform plan ##
 ```
@@ -1429,19 +1445,3 @@ aws_instance.ubuntu-slave: Creation complete after 1m21s [id=i-04198aa8ebbecc602
 Apply complete! Resources: 5 added, 0 changed, 0 destroyed.
 
 ```
-
-# 2.2 #
-
-## plugins.sh ##
-$ plugins.sh [pluginfile.txt]
-
-Построчно разбирает плагины jenkins-a и загружает в /opt/pluigins
-Параметры: 
-    pluginfile.txt - файл с перечислением плагинов jenkins-a формата:
-        ```
-        Plugin: %pluginname%
-        Version: %pluginversion%
-        ```
-Дополнительно:
-    Если не существует директории /opt/plugins с правами 700 для этого пользователя, 
-    скрипт автоматически ее создаст, но запросит sudo-пароль этого пользователя.
