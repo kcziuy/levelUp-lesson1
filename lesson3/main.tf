@@ -72,7 +72,7 @@ resource "aws_vpc" "vpc" {
 
 resource "aws_subnet" "sn" {
   vpc_id            = aws_vpc.vpc.id
-  cidr_block        = "10.0.0.0/24"
+  cidr_block        = "10.0.0.0/25"
   availability_zone = "eu-central-1a"
 
   tags = {
@@ -81,8 +81,9 @@ resource "aws_subnet" "sn" {
 }
 
 resource "aws_network_interface" "ni" {
+  count = 2
   subnet_id   = aws_subnet.sn.id
-  private_ips = ["10.0.0.100"]
+  private_ips = ["$format{10.0.0.100"]
 
   tags = {
     Name = "primary_network_interface"
@@ -97,11 +98,11 @@ resource "aws_instance" "ubuntu-vm" {
   #security_groups = [ "allow-all" ]
 
   tags = {
-    Name = "UbuntuServer"
+    Name = "${format("UbuntuServer-%03d",count.index +1)}"
   }
 
   network_interface {
-    network_interface_id = aws_network_interface.ni.id
+    network_interface_id = aws_network_interface.ni[count.index].id
     device_index         = 0
   }
 
